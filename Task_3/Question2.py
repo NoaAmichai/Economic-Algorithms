@@ -1,6 +1,25 @@
 import numpy as np
 
 
+"""
+Question 2: Weighted Round-Robin Algorithm
+
+Implement the weighted round-robin algorithm for distributing items among players. 
+
+The algorithm takes three inputs:
+@rights: A list of player rights, indicating the allocation rights for each player. 
+@valuations: A list of player valuations for each item, representing the preferences of each player for the available items.
+@y: A balancing parameter that influences the allocation strategy.
+
+In each iteration, the algorithm selects the player with the highest quotient of rights divided by (items_per_player + y) and gives that player the item with the highest value. 
+If there are multiple items with the same value, the algorithm prioritizes the item with 
+the lowest index. In cases where multiple players have the same quotient, the algorithm assigns the item to the 
+player with the lowest index.
+
+The output is a list of lists, representing the final allocation of items to players.
+"""
+
+
 def weighted_round_robin(rights: list[float], valuations: list[list[float]], y: float):
     """
        Allocates items to players using a weighted round-robin algorithm.
@@ -84,4 +103,5 @@ def find_best_item(player_valuations, remaining_items):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
