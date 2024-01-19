@@ -2,6 +2,41 @@ import numpy as np
 
 
 def weighted_round_robin(rights: list[float], valuations: list[list[float]], y: float):
+    """
+       Allocates items to players using a weighted round-robin algorithm.
+
+       Parameters:
+       - rights (list): List of rights for each player.
+       - valuations (list): List of lists representing player valuations for each item.
+       - y (float): Balancing parameter.
+
+       Returns:
+       - list: Allocation of items to players.
+
+       Examples:
+
+       Deffrent rights and different valuations
+       >>> weighted_round_robin([1, 2, 3],[[10, 10, 5], [10, 7, 6], [10, 10, 10]], 0.1)
+       Player 2 takes item 0 with value 10
+       Player 1 takes item 1 with value 7
+       Player 0 takes item 2 with value 5
+       [[2], [1], [0]]
+
+       Equal rights and  valuations
+       >>> weighted_round_robin([1, 1, 1], [[1, 1, 1], [1, 1, 1], [1, 1, 1]], 0.1)
+       Player 0 takes item 0 with value 1
+       Player 1 takes item 1 with value 1
+       Player 2 takes item 2 with value 1
+       [[0], [1], [2]]
+
+       Equal rights and different valuations
+       >>> weighted_round_robin([1, 1, 1], [[1, 2, 3], [3, 2, 1], [2, 1, 3]], 0.5)
+       Player 0 takes item 2 with value 3
+       Player 1 takes item 0 with value 3
+       Player 2 takes item 1 with value 1
+       [[2], [0], [1]]
+
+       """
     if len(valuations) == 0 or len(rights) == 0:
         return []
 
@@ -47,8 +82,6 @@ def find_best_item(player_valuations, remaining_items):
     return best_item
 
 
-# if __name__ == "__main__":
-#     weighted_round_robin(
-#         rights=[1, 2, 4],
-#         valuations=[[11, 11, 22, 33, 44], [11, 22, 44, 55, 66], [11, 33, 22, 11, 66]],
-#         y=0.5)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
