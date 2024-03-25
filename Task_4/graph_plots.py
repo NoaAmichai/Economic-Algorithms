@@ -13,7 +13,7 @@ def measure_runtime(num_items, purging_rule1, purging_rule2):
 
 
 # Generate data points for different numbers of items and purging rule combinations
-num_items_range = [2, 4, 6, 7]  # Range of number of items to test
+num_items_range = [2, 4, 6, 8]  # Range of number of items to test
 purging_rule_combinations = [(True, True), (False, True), (True, False), (False, False)]
 plot_labels = ["puring_rule1=True, puring_rule2=True",
                "puring_rule1=False, puring_rule2=True",
